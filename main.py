@@ -8,54 +8,53 @@ print('[3].Papier')
 game_list = ['Stein', 'Schere', 'Papier']
 eingabe = input()
 
-gegner_list = random.choices(game_list)
-gegner = ''.join(str(x) for x in gegner_list)
+enemy_list = random.choices(game_list)
+enemy = ''.join(str(x) for x in enemy_list)
 
 
-def spieler_choice():
+def player_choice():
     if eingabe == "1":
-        spieler = "Stein"
-        return spieler
+        selection = "Stein"
+        return selection
     elif eingabe == "2":
-        spieler = "Schere"
-        return spieler
+        selection = "Schere"
+        return selection
     elif eingabe == "3":
-        spieler = "Papier"
-        return spieler
+        selection = "Papier"
+        return selection
 
 
-def spiel_check():
-    while True:
-        spieler_choice()
+def res_check():
+        player_choice()
+        while True:
+            if eingabe == "1" and enemy == "Schere":
+                res = "Du hast gewonnen"
+                return res
+            elif eingabe == "2" and enemy == "Papier":
+                res = "Du hast gewonnen"
+                return res
+            elif eingabe == "3" and enemy == "Stein":
+                res = "Du hast gewonnen"
+                return res
+            elif eingabe == "1" and enemy == "Stein":
+                res = "Unterscheiden"
+                return res
+            elif eingabe == "2" and enemy == "Schere":
+                res = "Unterscheiden"
+                return res
+            elif eingabe == "3" and enemy == "Papier":
+                res = "Unterscheiden"
+                return res
+            elif eingabe == "1" and enemy == "Papier":
+                res = "Du hast Verloren"
+                return res
+            elif eingabe == "2" and enemy == "Stein":
+                res = "Du hast Verloren"
+                return res
+            elif eingabe == "3" and enemy == "SChere":
+                res = "Du hast Verloren"
+                return res
 
-        if eingabe == "1" and gegner == "Schere":
-            res = "Du hast gewonnen"
-            return res
-        elif eingabe == "2" and gegner == "Papier":
-            res = "Du hast gewonnen"
-            return res
-        elif eingabe == "3" and gegner == "Stein":
-            res = "Du hast gewonnen"
-            return res
-        elif eingabe == "1" and gegner == "Stein":
-            res = "Unterscheiden"
-            return res
-        elif eingabe == "2" and gegner == "Schere":
-            res = "Unterscheiden"
-            return res
-        elif eingabe == "3" and gegner == "Papier":
-            res = "Unterscheiden"
-            return res
-        elif eingabe == "1" and gegner == "Papier":
-            res = "Du hast Verloren"
-            return res
-        elif eingabe == "2" and gegner == "Stein":
-            res = "Du hast Verloren"
-            return res
-        elif eingabe == "3" and gegner == "SChere":
-            res = "Du hast Verloren"
-            return res
 
-
-print(spiel_check())
-print(spieler_choice(), 'schlägt', gegner)
+print(res_check())
+print(player_choice(), 'schlägt', enemy)
